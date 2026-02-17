@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 class EmployeeService:
     MODEL = "hr.employee"
 
@@ -50,4 +51,18 @@ class EmployeeService:
                 [[]],
                 {"fields": ["name", "job_title"], "limit": limit}
             ]
+        )
+
+
+    def get_new_hire(self, days=7, limit=10):
+        since_date = (datetime.utcnow() - timedelta(days=days)).strftime("%Y-%m-%d %H:%M:%S")
+
+        domain = [["create_date", ">=", since_date]]
+
+        return self.rpc.execute(
+            self.MODEL,
+            "search_read",
+            domain,
+            fields=["name", "job_title", "create_date"],
+            limit=limit
         )
