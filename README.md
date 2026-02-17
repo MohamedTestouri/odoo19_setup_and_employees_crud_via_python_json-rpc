@@ -194,7 +194,7 @@ Features:
 1. Clone the repository:
 
 ```bash
-git clone <REPOSITORY_URL>
+git clone [<REPOSITORY_URL>](https://github.com/MohamedTestouri/odoo19_setup_and_employees_crud_via_python_json-rpc.git)
 cd odoo_poc
 ```
 
